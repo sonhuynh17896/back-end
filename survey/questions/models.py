@@ -4,7 +4,8 @@ from surveyforms.models import SurveyForm
 class Questions(models.Model):
     TYPE_QUESTION = [
         ('text', 'Text'),
-        ('selection', 'Selection'),
+        ('vote', 'Vote'),
+        ('yes/no', 'Yes/No'),
         ('multiple', 'Multiple')
     ]
     title = models.CharField(max_length=250)
@@ -14,3 +15,10 @@ class Questions(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def answers(self):
+        return self.answer_set.all()
+
+    
+

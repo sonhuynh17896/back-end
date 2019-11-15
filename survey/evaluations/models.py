@@ -7,3 +7,11 @@ class Evaluation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     submitted_time = models.DateTimeField(auto_now_add=True)
 
+    
+
+    @property
+    def results(self):
+        return self.result_set.all()
+
+
+

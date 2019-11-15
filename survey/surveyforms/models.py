@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 # Create your models here.
 class SurveyForm(models.Model):
     STATUS_CHOICES = [
@@ -20,3 +21,13 @@ class SurveyForm(models.Model):
     limitNumberofEvaluation  = models.IntegerField(default=0)
     status = models.CharField(max_length=10, choices= STATUS_CHOICES, default='open')
     key = models.CharField(max_length=20,unique=True)
+
+    def __str__(self):
+        return self.title
+
+    @property
+    def questions(self):
+        return self.questions_set.all()
+
+
+    
