@@ -112,8 +112,8 @@ media/
 !**/migrations
 !**/migrations/__init__.py
 
-# CPython
-*.cpython*
+*/*/*/__pycache__/
 
-# VSCode
-launch.json
+*/*/__pycache__/
+
+*/__pycache__/
